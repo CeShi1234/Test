@@ -30,7 +30,7 @@ public class GuardianController extends BaseController {
 
 	
 	@Resource 
-	private GuardianService guardianService;
+
 	@Resource
 	private RoleTbService roleTbService;
 	
@@ -51,13 +51,13 @@ public class GuardianController extends BaseController {
 	/**
 	/**
 	 * 
-	 * 鏂规硶鎻忚堪 :璺宠浆鑷虫柊澧為〉闈�
+	 * 閺傝纭堕幓蹇氬牚 :鐠哄疇娴嗛懛铏煀婢х偤銆夐棃锟�
 	 *
 	 * @param model
 	 * @param tabfrmId
 	 * @return
-	 * 鍒涘缓浜� :  xiongzhenghai
-	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓婂崍11:43:48
+	 * 閸掓稑缂撴禍锟� :  xiongzhenghai
+	 * 閸掓稑缂撻弮鍫曟？: 2016楠烇拷8閺堬拷12閺冿拷 娑撳﹤宕�11:43:48
 	 *
 	 */
 	@RequiresPermissions("infos_guardian:add")
@@ -68,14 +68,14 @@ public class GuardianController extends BaseController {
 	
 	/**
 	 * 
-	 * 鏂规硶鎻忚堪 :璺宠浆鑷充慨鏀归〉闈�
+	 * 閺傝纭堕幓蹇氬牚 :鐠哄疇娴嗛懛鍏呮叏閺�褰掋�夐棃锟�
 	 *
 	 * @param model
 	 * @param id
 	 * @param tabfrmId
 	 * @return
-	 * 鍒涘缓浜� :  yangzhuo
-	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓婂崍11:46:58
+	 * 閸掓稑缂撴禍锟� :  yangzhuo
+	 * 閸掓稑缂撻弮鍫曟？: 2016楠烇拷8閺堬拷12閺冿拷 娑撳﹤宕�11:46:58
 	 *
 	 */
 	@RequiresPermissions("infos_guardian:edit")
@@ -92,13 +92,13 @@ public class GuardianController extends BaseController {
 	}
 	/**
 	 * 
-	 * 鏂规硶鎻忚堪 :璺宠浆鍒扮洃鎶や汉淇℃伅鏌ョ湅椤甸潰
+	 * 閺傝纭堕幓蹇氬牚 :鐠哄疇娴嗛崚鎵磧閹躲倓姹夋穱鈩冧紖閺屻儳婀呮い鐢告桨
 	 *
 	 * @param id
 	 * @param model
 	 * @return
-	 * 鍒涘缓浜� :  yangzhuo
-	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓嬪崍4:04:58
+	 * 閸掓稑缂撴禍锟� :  yangzhuo
+	 * 閸掓稑缂撻弮鍫曟？: 2016楠烇拷8閺堬拷12閺冿拷 娑撳宕�4:04:58
 	 *
 	 */
 	@RequestMapping("/look/{id}")
@@ -109,31 +109,31 @@ public class GuardianController extends BaseController {
 	
 	/**
 	 * 
-	 * 鏂规硶鎻忚堪 :娣诲姞/淇敼瀛︾敓淇℃伅骞惰褰曟棩蹇�
+	 * 閺傝纭堕幓蹇氬牚 :濞ｈ濮�/娣囶喗鏁肩�涳妇鏁撴穱鈩冧紖楠炴儼顔囪ぐ鏇熸）韫囷拷
 	 *
 	 * @param student
 	 * @param content
 	 * @return
-	 * 鍒涘缓浜� :  xiongzhenghai
-	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓嬪崍3:07:08
+	 * 閸掓稑缂撴禍锟� :  xiongzhenghai
+	 * 閸掓稑缂撻弮鍫曟？: 2016楠烇拷8閺堬拷12閺冿拷 娑撳宕�3:07:08
 	 *
 	 */
 	@RequestMapping("/save")
 	@ResponseBody  
 	public JsonView save(TbGuardian guardian, String content){
 		JsonView jv = new JsonView();
-		if (guardian.getId() != null) {// 淇敼
+		if (guardian.getId() != null) {// 娣囶喗鏁�
 			try {
 				this.guardianService.saveGuardian(guardian);
-				jv.setMsg("淇敼璧勫姪浜轰俊鎭垚鍔燂紒");
+				jv.setMsg("娣囶喗鏁肩挧鍕И娴滆桨淇婇幁顖涘灇閸旂噦绱�");
 				jv.setSuccess(true);
-				Logs.info("淇敼璧勫姪浜轰俊鎭痠d : " + guardian.getId());
+				Logs.info("娣囶喗鏁肩挧鍕И娴滆桨淇婇幁鐥燿 : " + guardian.getId());
 			} catch (Exception e) {
-				Logs.error("淇敼璧勫姪浜轰俊鎭け璐� ----> " + e.getMessage());
+				Logs.error("娣囶喗鏁肩挧鍕И娴滆桨淇婇幁顖氥亼鐠愶拷 ----> " + e.getMessage());
 				jv.setMsg(Constants.UPDATE_TIP_FAILED);
 				jv.setSuccess(false);
 			}
-		} else {// 鏂板
+		} else {// 閺傛澘顤�
 			try {
 				
 				String userType = null;
@@ -152,11 +152,11 @@ public class GuardianController extends BaseController {
 				}
 				this.guardianService.saveGuardian(guardian);
 				jv.setSuccess(true);
-				jv.setMsg("娣诲姞璧勫姪浜轰俊鎭垚鍔燂紒");
-				Logs.info("娣诲姞璧勫姪浜轰俊鎭痠d : " + guardian.getId());
+				jv.setMsg("濞ｈ濮炵挧鍕И娴滆桨淇婇幁顖涘灇閸旂噦绱�");
+				Logs.info("濞ｈ濮炵挧鍕И娴滆桨淇婇幁鐥燿 : " + guardian.getId());
 			} catch (Exception e) {
-				Logs.error("娣诲姞璧勫姪浜轰俊鎭け璐� ----> " + e.getMessage());
-				jv.setMsg("娣诲姞璧勫姪浜轰俊鎭け璐ワ紒");
+				Logs.error("濞ｈ濮炵挧鍕И娴滆桨淇婇幁顖氥亼鐠愶拷 ----> " + e.getMessage());
+				jv.setMsg("濞ｈ濮炵挧鍕И娴滆桨淇婇幁顖氥亼鐠愩儻绱�");
 				jv.setSuccess(false);
 			}
 		}
@@ -167,12 +167,12 @@ public class GuardianController extends BaseController {
 
 	/**
 	 * 
-	 * 鏂规硶鎻忚堪 :鍒犻櫎璧勫姪浜轰俊鎭�
+	 * 閺傝纭堕幓蹇氬牚 :閸掔娀娅庣挧鍕И娴滆桨淇婇幁锟�
 	 *
 	 * @param ids
 	 * @return
-	 * 鍒涘缓浜� :  xiongzhenghai
-	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓嬪崍4:01:51
+	 * 閸掓稑缂撴禍锟� :  xiongzhenghai
+	 * 閸掓稑缂撻弮鍫曟？: 2016楠烇拷8閺堬拷12閺冿拷 娑撳宕�4:01:51
 	 *
 	 */
 	@RequiresPermissions("infos_student:del")
@@ -182,15 +182,15 @@ public class GuardianController extends BaseController {
 		JsonView jv = new JsonView();
 		try{
 			this.guardianService.delGuardians(ids);
-			jv.setMsg("鍒犻櫎璧勫姪浜烘垚鍔�");
+			jv.setMsg("閸掔娀娅庣挧鍕И娴滅儤鍨氶崝锟�");
 			jv.setSuccess(true);
 		}catch(Exception e){
-			jv.setMsg("鍒犻櫎璧勫姪浜哄け璐�");
+			jv.setMsg("閸掔娀娅庣挧鍕И娴滃搫銇戠拹锟�");
 			jv.setSuccess(false);
 			e.printStackTrace();
-			LOG.error("璧勫姪浜轰俊鎭� - 鍒犻櫎澶辫触:"+e.getMessage());
+			LOG.error("鐠у嫬濮禍杞颁繆閹拷 - 閸掔娀娅庢径杈Е:"+e.getMessage());
 		}
-		Logs.info("鍒犻櫎璧勫姪浜轰俊鎭痠ds : " + ids);
+		Logs.info("閸掔娀娅庣挧鍕И娴滆桨淇婇幁鐥燿s : " + ids);
 		return jv;
 	}
 	
