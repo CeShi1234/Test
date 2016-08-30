@@ -30,7 +30,7 @@ public class GuardianController extends BaseController {
 
 	
 	@Resource 
-	private GuardianService guardianService;
+
 	@Resource
 	private RoleTbService roleTbService;
 	
