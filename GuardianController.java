@@ -28,8 +28,6 @@ import com.anhry.app.util.log.Logs;
 @RequestMapping("/infos/guardian")
 public class GuardianController extends BaseController {
 
-	@Resource 
-	private UtilDao utilDao;	
 	
 	@Resource 
 	private GuardianService guardianService;
@@ -53,13 +51,13 @@ public class GuardianController extends BaseController {
 	/**
 	/**
 	 * 
-	 * 方法描述 :跳转至新增页面
+	 * 鏂规硶鎻忚堪 :璺宠浆鑷虫柊澧為〉闈�
 	 *
 	 * @param model
 	 * @param tabfrmId
 	 * @return
-	 * 创建人 :  xiongzhenghai
-	 * 创建时间: 2016年8月12日 上午11:43:48
+	 * 鍒涘缓浜� :  xiongzhenghai
+	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓婂崍11:43:48
 	 *
 	 */
 	@RequiresPermissions("infos_guardian:add")
@@ -70,14 +68,14 @@ public class GuardianController extends BaseController {
 	
 	/**
 	 * 
-	 * 方法描述 :跳转至修改页面
+	 * 鏂规硶鎻忚堪 :璺宠浆鑷充慨鏀归〉闈�
 	 *
 	 * @param model
 	 * @param id
 	 * @param tabfrmId
 	 * @return
-	 * 创建人 :  yangzhuo
-	 * 创建时间: 2016年8月12日 上午11:46:58
+	 * 鍒涘缓浜� :  yangzhuo
+	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓婂崍11:46:58
 	 *
 	 */
 	@RequiresPermissions("infos_guardian:edit")
@@ -94,13 +92,13 @@ public class GuardianController extends BaseController {
 	}
 	/**
 	 * 
-	 * 方法描述 :跳转到监护人信息查看页面
+	 * 鏂规硶鎻忚堪 :璺宠浆鍒扮洃鎶や汉淇℃伅鏌ョ湅椤甸潰
 	 *
 	 * @param id
 	 * @param model
 	 * @return
-	 * 创建人 :  yangzhuo
-	 * 创建时间: 2016年8月12日 下午4:04:58
+	 * 鍒涘缓浜� :  yangzhuo
+	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓嬪崍4:04:58
 	 *
 	 */
 	@RequestMapping("/look/{id}")
@@ -111,31 +109,31 @@ public class GuardianController extends BaseController {
 	
 	/**
 	 * 
-	 * 方法描述 :添加/修改学生信息并记录日志
+	 * 鏂规硶鎻忚堪 :娣诲姞/淇敼瀛︾敓淇℃伅骞惰褰曟棩蹇�
 	 *
 	 * @param student
 	 * @param content
 	 * @return
-	 * 创建人 :  xiongzhenghai
-	 * 创建时间: 2016年8月12日 下午3:07:08
+	 * 鍒涘缓浜� :  xiongzhenghai
+	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓嬪崍3:07:08
 	 *
 	 */
 	@RequestMapping("/save")
 	@ResponseBody  
 	public JsonView save(TbGuardian guardian, String content){
 		JsonView jv = new JsonView();
-		if (guardian.getId() != null) {// 修改
+		if (guardian.getId() != null) {// 淇敼
 			try {
 				this.guardianService.saveGuardian(guardian);
-				jv.setMsg("修改资助人信息成功！");
+				jv.setMsg("淇敼璧勫姪浜轰俊鎭垚鍔燂紒");
 				jv.setSuccess(true);
-				Logs.info("修改资助人信息id : " + guardian.getId());
+				Logs.info("淇敼璧勫姪浜轰俊鎭痠d : " + guardian.getId());
 			} catch (Exception e) {
-				Logs.error("修改资助人信息失败 ----> " + e.getMessage());
+				Logs.error("淇敼璧勫姪浜轰俊鎭け璐� ----> " + e.getMessage());
 				jv.setMsg(Constants.UPDATE_TIP_FAILED);
 				jv.setSuccess(false);
 			}
-		} else {// 新增
+		} else {// 鏂板
 			try {
 				
 				String userType = null;
@@ -154,11 +152,11 @@ public class GuardianController extends BaseController {
 				}
 				this.guardianService.saveGuardian(guardian);
 				jv.setSuccess(true);
-				jv.setMsg("添加资助人信息成功！");
-				Logs.info("添加资助人信息id : " + guardian.getId());
+				jv.setMsg("娣诲姞璧勫姪浜轰俊鎭垚鍔燂紒");
+				Logs.info("娣诲姞璧勫姪浜轰俊鎭痠d : " + guardian.getId());
 			} catch (Exception e) {
-				Logs.error("添加资助人信息失败 ----> " + e.getMessage());
-				jv.setMsg("添加资助人信息失败！");
+				Logs.error("娣诲姞璧勫姪浜轰俊鎭け璐� ----> " + e.getMessage());
+				jv.setMsg("娣诲姞璧勫姪浜轰俊鎭け璐ワ紒");
 				jv.setSuccess(false);
 			}
 		}
@@ -169,12 +167,12 @@ public class GuardianController extends BaseController {
 
 	/**
 	 * 
-	 * 方法描述 :删除资助人信息
+	 * 鏂规硶鎻忚堪 :鍒犻櫎璧勫姪浜轰俊鎭�
 	 *
 	 * @param ids
 	 * @return
-	 * 创建人 :  xiongzhenghai
-	 * 创建时间: 2016年8月12日 下午4:01:51
+	 * 鍒涘缓浜� :  xiongzhenghai
+	 * 鍒涘缓鏃堕棿: 2016骞�8鏈�12鏃� 涓嬪崍4:01:51
 	 *
 	 */
 	@RequiresPermissions("infos_student:del")
@@ -184,15 +182,15 @@ public class GuardianController extends BaseController {
 		JsonView jv = new JsonView();
 		try{
 			this.guardianService.delGuardians(ids);
-			jv.setMsg("删除资助人成功");
+			jv.setMsg("鍒犻櫎璧勫姪浜烘垚鍔�");
 			jv.setSuccess(true);
 		}catch(Exception e){
-			jv.setMsg("删除资助人失败");
+			jv.setMsg("鍒犻櫎璧勫姪浜哄け璐�");
 			jv.setSuccess(false);
 			e.printStackTrace();
-			LOG.error("资助人信息 - 删除失败:"+e.getMessage());
+			LOG.error("璧勫姪浜轰俊鎭� - 鍒犻櫎澶辫触:"+e.getMessage());
 		}
-		Logs.info("删除资助人信息ids : " + ids);
+		Logs.info("鍒犻櫎璧勫姪浜轰俊鎭痠ds : " + ids);
 		return jv;
 	}
 	
