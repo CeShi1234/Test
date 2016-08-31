@@ -28,8 +28,8 @@ import com.anhry.app.util.log.Logs;
 @RequestMapping("/infos/guardian")
 public class GuardianController extends BaseController {
 
-	
-	@Resource 1144
+
+	@Resource 11442
 
 	@Resource
 	private RoleTbService roleTbService;
