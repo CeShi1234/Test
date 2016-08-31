@@ -29,7 +29,7 @@ import com.anhry.app.util.log.Logs;
 public class GuardianController extends BaseController {
 
 	
-	@Resource 11
+	@Resource 1144
 
 	@Resource
 	private RoleTbService roleTbService;
